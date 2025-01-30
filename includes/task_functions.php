@@ -1,12 +1,15 @@
 <?php
-
 #Nova tarefa
 function addTask($pdo, $name, $description, $status) {
-    $sql = "INSERT INTO tasks (name, description, status) VALUES (:name, :description, :status)";
+    echo $name;
+    echo $description;
+    echo $status;
+
+    $sql = "INSERT INTO task (nome, description, status) VALUES (:nome, :description, :status)";
     $stmt = $pdo->prepare($sql);
     
 #Vincula os parâmetros
-    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':nome', $name);
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':status', $status);
     
@@ -16,7 +19,7 @@ function addTask($pdo, $name, $description, $status) {
 
 #Obter tarefas
 function getTasks($pdo) {
-    $sql = "SELECT * FROM tasks";
+    $sql = "SELECT * FROM task";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     

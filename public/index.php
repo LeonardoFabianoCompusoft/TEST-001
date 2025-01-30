@@ -8,7 +8,7 @@ $tasks = getTasks($pdo);
 
 include_once '../templates/header.php';
 
-include_once '../content/task_list.php';
+include_once '../public/content/task_list.php';
 
 include_once '../templates/footer.php';
 ?>
