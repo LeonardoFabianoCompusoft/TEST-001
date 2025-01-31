@@ -1,5 +1,14 @@
 <h1>Lista de Tarefas</h1>
-
+<span>
+    <?php 
+        echo '<hr>';
+        if(isset($_COOKIE['mensagem'])){
+            echo $_COOKIE['mensagem'];
+            setcookie("mensagem", '', time() - 3600, "/");
+        }
+        echo '<hr>';
+    ?>
+</span>
 <table>
     <tbody>
         <?php foreach ($tasks as $task): ?>

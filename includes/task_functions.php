@@ -25,4 +25,27 @@ function getTasks($pdo) {
     
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+#Atualizar tarefa
+function updateTask($pdo, $id, $name, $description, $status) {
+    $sql = "UPDATE task SET nome = :nome, description = :description, status = :status WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    
+    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':nome', $name);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':status', $status);
+    
+    return $stmt->execute();
+}
+
+function deleteTask($pdo, $id) {
+    $sql = "DELETE FROM task WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    
+    $stmt->bindParam(':id', $id);
+    
+    return $stmt->execute();
+}
+
 ?>
