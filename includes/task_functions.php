@@ -39,6 +39,7 @@ function updateTask($pdo, $id, $name, $description, $status) {
     return $stmt->execute();
 }
 
+#Excluir tarefa
 function deleteTask($pdo, $id) {
     $sql = "DELETE FROM task WHERE id = :id";
     $stmt = $pdo->prepare($sql);

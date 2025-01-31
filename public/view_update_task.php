@@ -20,7 +20,7 @@ $stmt->execute([
 ]);
 $task = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
+#Verifica se a tarefa foi encontrada
 if(!$task) {
     echo "Tarefa não encontrada";
     exit;
