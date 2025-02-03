@@ -1,6 +1,6 @@
 <h1>Adicionar Nova Tarefa</h1>
 
-<form action="../public/add_task.php" method="POST">
+<form action="../public/content/add_task.php" method="POST">
     <div class="form-group">
         <label for="nome">Nome da Tarefa:</label><br>
         <input type="text" id="nome" name="nome" required>

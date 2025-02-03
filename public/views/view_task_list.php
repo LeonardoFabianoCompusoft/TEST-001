@@ -1,3 +1,4 @@
+
 <h1>Lista de Tarefas</h1>
 
 <span>
@@ -29,8 +30,8 @@
             <tr>
                 <th>Ações:</th>
                 <td>
-                    <a href="view_update_task.php?id=<?php echo $task['id']; ?>" class="btn-edit">Editar</a> | 
-                    <a href="delete_task.php?id=<?php echo $task['id']; ?>" class="btn-delete">Excluir</a>
+                    <a href="../public/views/view_update_task.php?id=<?php echo $task['id']; ?>" class="btn-edit">Editar</a> | 
+                    <a href="../public/content/delete_task.php?id=<?php echo $task['id']; ?>" class="btn-delete">Excluir</a>
                 </td>
             </tr>
             <tr><td colspan="2"><hr></td></tr> <!-- Linha separadora entre tarefas -->
@@ -38,7 +39,7 @@
     </tbody>
 </table>
 
-<a href="../public/view_add_task.php" class="btn-create">Criar novo formulário</a>
+<a href="../public/add_index.php" class="btn-create">Criar novo formulário</a>
 
 <style>
     .task-table {

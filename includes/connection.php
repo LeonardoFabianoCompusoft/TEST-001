@@ -1,6 +1,6 @@
 <?php
 #definindo o banco de dados
-$dsn = 'mysql:host=localhost, dbname=dbGenT';
+$dsn = 'mysql:host=localhost;dbname=dbGenT';
 $username = 'root';
 $password = '';
 

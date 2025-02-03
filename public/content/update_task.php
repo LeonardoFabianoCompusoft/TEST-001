@@ -1,6 +1,6 @@
 <?php
-include_once '../includes/connection.php';
-include_once '../includes/task_functions.php';
+include_once '../../includes/connection.php';
+include_once '../../includes/task_functions.php';
 
 #Passar a task
 $id = $_POST['id'];
@@ -16,6 +16,6 @@ if(updateTask($pdo, $id, $name, $description, $status)) {
 }
 
 setcookie("mensagem", $mensagem, time() + 3600, "/");
-header('Location: index.php');
+header('Location: ../index.php');
 
 ?>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
 
-include_once '../includes/connection.php';
-include_once '../includes/task_functions.php';
+include_once '../../includes/connection.php';
+include_once '../../includes/task_functions.php';
 
 #Verifica se id foi passado
 if (!isset($_GET['id'])) {
@@ -62,7 +62,7 @@ if(!$task) {
             color: #555;
         }
 
-        input[type="text"], textarea {
+        input[type="text"], textarea, select {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
@@ -107,7 +107,7 @@ if(!$task) {
 </head>
 <body>
     <h1>Editar Tarefa</h1>
-    <form action="./update_task.php" method="POST">
+    <form action="../../public/content/update_task.php" method="POST">
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($task['id']); ?>">
         <div class="form-group">
             <label>Nome:</label>
@@ -119,7 +119,11 @@ if(!$task) {
         </div>
         <div class="form-group">
             <label>Status:</label>
-            <input type="text" name="status" value="<?php echo htmlspecialchars($task['status']); ?>" required><br>
+            <select id="status" name="status">
+            <option value="pendente">Pendente</option>
+            <option value="Ativo">Ativo</option>
+            <option value="Finalizado">Finalizado</option>
+        </select>
         </div>
         <button type="submit" name="submit">Atualizar</button>
     </form>
