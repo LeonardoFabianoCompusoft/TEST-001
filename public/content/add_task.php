@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     #Adiciona tarefa
     if (addTask($pdo, $name, $description, $status)) {
         echo "Tarefa adicionada com sucesso!";
-        header('Location: ../index.php'); #Redireciona para a lista de tarefas
+        header('Location: ../list_index.php'); #Redireciona para a lista de tarefas
         exit;
     } else {
         echo "Erro ao adicionar a tarefa!";

@@ -20,4 +20,4 @@ if(deleteTask($pdo, $id, $name, $description, $status)) {
 }
 
 setcookie("mensagem", $mensagem, time() + 3600, "/");
-header('Location: ../index.php');
+header('Location: ../list_index.php');

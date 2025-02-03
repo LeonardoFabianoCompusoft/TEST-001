@@ -30,79 +30,118 @@ if(!$task) {
 <head>
     <title>Editar Tarefa</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-top: 30px;
-        }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    padding: 20px;
+}
 
-        form {
-            background-color: #fff;
-            padding: 20px;
-            max-width: 500px;
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+.container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    animation: fadeIn 0.5s ease-in-out;
+}
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
 
-        label {
-            display: block;
-            font-weight: bold;
-            color: #555;
-        }
+/* Formulário de edição de tarefa */
+form {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 500px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        input[type="text"], textarea, select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+.form-group {
+    margin-bottom: 15px;
+}
 
-        textarea {
-            resize: vertical;
-            height: 100px;
-        }
+label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+}
 
-        button[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 16px;
-        }
+input[type="text"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
 
-        button[type="submit"]:hover {
-            background-color: #45a049;
-        }
+textarea {
+    resize: vertical;
+    height: 120px;
+}
 
-        .back-link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-        }
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
 
-        .back-link a {
-            color: #007bff;
-            text-decoration: none;
-        }
+button[type="submit"]:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
 
-        .back-link a:hover {
-            text-decoration: underline;
-        }
+/* Link para voltar */
+.back-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
     </style>
 </head>
 <body>
@@ -128,7 +167,7 @@ if(!$task) {
         <button type="submit" name="submit">Atualizar</button>
     </form>
     <div class="back-link">
-        <a href="index.php">Voltar</a>
+        <a href="../list_index.php">Voltar</a>
     </div>
 </body>
 </html>

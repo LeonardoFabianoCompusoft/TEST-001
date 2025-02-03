@@ -1,84 +1,134 @@
-<h1>Adicionar Nova Tarefa</h1>
+<div class="container">
+    <h1>Adicionar Nova Tarefa</h1>
+    <form action="../public/content/add_task.php" method="POST">
+        <div class="form-group">
+            <label for="nome">Nome da Tarefa:</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
 
-<form action="../public/content/add_task.php" method="POST">
-    <div class="form-group">
-        <label for="nome">Nome da Tarefa:</label><br>
-        <input type="text" id="nome" name="nome" required>
-    </div>
+        <div class="form-group">
+            <label for="description">Descrição:</label>
+            <textarea id="description" name="description"></textarea>
+        </div>
 
-    <div class="form-group">
-        <label for="description">Descrição:</label><br>
-        <textarea id="description" name="description"></textarea>
-    </div>
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="pendente">Pendente</option>
+                <option value="Ativo">Ativo</option>
+            </select>
+        </div>
 
-    <div class="form-group">
-        <label for="status">Status:</label><br>
-        <select id="status" name="status">
-            <option value="pendente">Pendente</option>
-            <option value="Ativo">Ativo</option>
-        </select>
-    </div>
+        <button type="submit" name="submit" class="btn-submit">Adicionar Tarefa</button>
+        <a href="../public/list_index.php" class="btn-submit btn-list">Lista</a>
+    </form>
+</div>
 
-    <button type="submit" name="submit" class="btn-submit">Adicionar Tarefa</button>
-</form>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    h1 {
-        color: #333;
-        text-align: center;
-        margin-top: 30px;
-    }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    padding: 20px;
+}
 
-    form {
-        background-color: #fff;
-        padding: 20px;
-        max-width: 500px;
-        margin: 20px auto;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+.container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    animation: fadeIn 0.5s ease-in-out;
+}
 
-    .form-group {
-        margin-bottom: 15px;
-    }
+h1 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+}
 
-    label {
-        display: block;
-        font-weight: bold;
-        color: #555;
-    }
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
 
-    input[type="text"], textarea, select {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
+label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
 
-    textarea {
-        resize: vertical;
-        height: 100px;
-    }
+input[type="text"], textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
 
-    .btn-submit {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        border-radius: 4px;
-        font-size: 16px;
-    }
+input:focus, textarea:focus, select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
 
-    .btn-submit:hover {
-        background-color: #45a049;
+textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+.btn-list {
+    background: #007BFF;
+}
+
+.btn-list:hover {
+    background: #0056b3;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 </style>

@@ -42,56 +42,122 @@
 <a href="../public/add_index.php" class="btn-create">Criar novo formulário</a>
 
 <style>
-    .task-table {
-        width: 80%;
-        margin: 20px auto;
-        border-collapse: collapse;
-    }
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    .task-table th, .task-table td {
-        padding: 12px;
-        border: 1px solid #ddd;
-        text-align: left;
-    }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    padding: 20px;
+}
 
-    .task-table th {
-        background-color: #f2f2f2;
-        color: #333;
-    }
+.container {
+    background: #fff;
+    padding: 1.5rem; /* Diminuído o padding */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 600px; /* Diminuímos o tamanho máximo */
+    animation: fadeIn 0.5s ease-in-out;
+}
 
-    a {
-        text-decoration: none;
-    }
+h1 {
+    text-align: center;
+    font-size: 1.6rem; /* Reduzido o tamanho do título */
+    margin-bottom: 1rem;
+    color: #333;
+}
 
-    .btn-edit, .btn-delete, .btn-create {
-        padding: 8px 16px;
-        color: #fff;
-        border-radius: 4px;
-        font-size: 14px;
-        margin: 5px;
-    }
+/* Tabela de tarefas */
+.task-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-    .btn-edit {
-        background-color: #007bff;
-    }
+.task-table th, .task-table td {
+    padding: 12px; /* Reduzido o padding das células */
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
 
-    .btn-edit:hover {
-        background-color: #0056b3;
-    }
+.task-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+}
 
-    .btn-delete {
-        background-color: #dc3545;
-    }
+.task-table tr:last-child td {
+    border-bottom: none;
+}
 
-    .btn-delete:hover {
-        background-color: #c82333;
-    }
+/* Botões de ação */
+.btn-edit, .btn-delete, .btn-create {
+    display: inline-block;
+    padding: 8px 16px; /* Diminuído o padding dos botões */
+    color: #fff;
+    border-radius: 6px;
+    font-size: 13px; /* Tamanho da fonte reduzido */
+    text-align: center;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none;
+    margin-top: 10px;
+}
 
-    .btn-create {
-        background-color: #28a745;
-    }
+.btn-edit {
+    background: #007bff;
+}
 
-    .btn-create:hover {
-        background-color: #218838;
+.btn-edit:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.btn-delete {
+    background: #dc3545;
+}
+
+.btn-delete:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+.btn-create {
+    background: #28a745;
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+}
+
+.btn-create:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 </style>
