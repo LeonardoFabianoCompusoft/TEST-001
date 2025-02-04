@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = getUser($pdo, $email);
         if ($user && $senha === $user['senha']) {
             $_SESSION['email'] = $user['email'];
-            header("Location: ../public/add_index.php");
+            header("Location: ../add_index.php");
             exit;
         } else {
             $_SESSION['email'] = '';
@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="senha" placeholder="Senha" required>
             <button type="submit">Entrar</button>
-            <a href="../views/view_reg.php" class="button">Registro</a>
+            <a href="../public/views/view_reg.php" class="button">Registro</a>
         </form>
     </div>
 </body>
