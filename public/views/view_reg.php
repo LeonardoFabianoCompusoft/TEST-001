@@ -18,15 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->fetch()) {
             $erro = "Este e-mail já está cadastrado!";
         } else {
-            // Hash seguro da senha
-            $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-
-            // Insere o usuário no banco
+            // Insere o usuário no banco sem hash da senha
             $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)");
             $cadastro = $stmt->execute([
                 'nome' => $nome,
                 'email' => $email,
-                'senha' => $senha_hash
+                'senha' => $senha
             ]);
 
             if ($cadastro) {
@@ -37,6 +34,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
+
+
+
+#registro com codificação de senha estava dando erro de senha incorreta no login
+
+
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     $nome = trim($_POST['nome']);
+//     $email = trim($_POST['email']);
+//     $senha = trim($_POST['senha']);
+//     $confirmar_senha = trim($_POST['confirmar_senha']);
+
+//     // Verifica se as senhas coincidem
+//     if ($senha !== $confirmar_senha) {
+//         $erro = "As senhas não coincidem!";
+//     } else {
+//         // Verifica se o e-mail já está cadastrado
+//         $stmt = $pdo->prepare("SELECT id FROM usuarios WHERE email = :email");
+//         $stmt->execute(['email' => $email]);
+        
+//         if ($stmt->fetch()) {
+//             $erro = "Este e-mail já está cadastrado!";
+//         } else {
+//             // Hash seguro da senha
+//             $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+//             // Insere o usuário no banco
+//             $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)");
+//             $cadastro = $stmt->execute([
+//                 'nome' => $nome,
+//                 'email' => $email,
+//                 'senha' => $senha_hash
+//             ]);
+
+//             if ($cadastro) {
+//                 $sucesso = "Cadastro realizado com sucesso! <a href='view_home_login.php'>Faça login</a>";
+//             } else {
+//                 $erro = "Erro ao cadastrar. Tente novamente!";
+//             }
+//         }
+//     }
+// }
 ?>
 
 <!DOCTYPE html>
@@ -163,7 +203,7 @@ a:hover {
             <input type="password" name="senha" placeholder="Senha" required>
             <input type="password" name="confirmar_senha" placeholder="Confirmar Senha" required>
             <button type="submit">Registrar</button>
-            <a href="../../public/views/view_home_login.php">Voltar</a>
+            <a href="../views/view_home_login.php">Voltar</a>
         </form>
     </div>
 </body>

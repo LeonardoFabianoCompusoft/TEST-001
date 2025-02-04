@@ -5,7 +5,14 @@ include_once '../includes/connection.php';
 include_once '../includes/task_functions.php';
 
 #Tarefas
-$tasks = getTasks($pdo);
+session_start();
+$email = $_SESSION['email'];
+if (!empty($email)) {
+    $user = getUser($pdo, $email);
+    if (!empty($user)) {
+        $tasks = getTasks($pdo, $user['id']);
+    }
+}
 
 include_once '../templates/header.php';
 
