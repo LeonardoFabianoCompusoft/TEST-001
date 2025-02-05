@@ -1,8 +1,11 @@
 <?php
-include_once '../includes/connection.php';
-include_once '../includes/task_functions.php';
+include_once 'C:\wamp64\www\GenT\includes\connection.php';
+include_once 'C:\wamp64\www\GenT\includes\task_functions.php';
 
 session_start();
+
+
+$_SESSION['email'] = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -13,12 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $erro = "Preencha todos os campos!";
     } else {
         $user = getUser($pdo, $email);
-        if ($user && $senha === $user['senha']) {
+        if ($user && password_verify($senha, $user['senha'])) {
             $_SESSION['email'] = $user['email'];
-            header("Location: ../add_index.php");
+            header("Location: ./public/views/view_add_task.php");
             exit;
         } else {
-            $_SESSION['email'] = '';
             $erro = "Email ou senha inválidos!";
         }
     }
@@ -170,7 +172,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="senha" placeholder="Senha" required>
             <button type="submit">Entrar</button>
-            <a href="../public/views/view_reg.php" class="button">Registro</a>
+            <a href="../views/view_reg.php" class="button">Registro</a>
         </form>
     </div>
 </body>

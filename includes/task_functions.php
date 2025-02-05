@@ -64,6 +64,7 @@ function deleteTask($pdo, $id)
     return $stmt->execute();
 }
 
+#buscar usuario pelo email
 function getUser($pdo, $email)
 {
     $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
@@ -72,6 +73,7 @@ function getUser($pdo, $email)
     return $user;
 }
 
+#buscar usuario, task e controle pelo id
 function addControle($pdo, $id_user, $id_task){
     $sql = "INSERT INTO controle (id_user, id_task) VALUES (:id_user, :id_task)";
     $stmt = $pdo->prepare($sql);
@@ -82,3 +84,5 @@ function addControle($pdo, $id_user, $id_task){
     ]);
     return $executou;
 }
+
+define('CHAVE_ADMIN', 'teste@123');

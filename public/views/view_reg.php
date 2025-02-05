@@ -1,5 +1,6 @@
 <?php
 include_once '../../includes/connection.php';
+include_once '../../includes/task_functions.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = trim($_POST['nome']);
@@ -14,16 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verifica se o e-mail já está cadastrado
         $stmt = $pdo->prepare("SELECT id FROM usuarios WHERE email = :email");
         $stmt->execute(['email' => $email]);
-        
         if ($stmt->fetch()) {
             $erro = "Este e-mail já está cadastrado!";
         } else {
-            // Insere o usuário no banco sem hash da senha
+            $senha_hash = password_hash($senha, CHAVE_ADMIN);
             $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)");
             $cadastro = $stmt->execute([
                 'nome' => $nome,
                 'email' => $email,
-                'senha' => $senha
+                'senha' => $senha_hash
             ]);
 
             if ($cadastro) {
