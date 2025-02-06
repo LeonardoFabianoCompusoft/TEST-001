@@ -36,8 +36,8 @@ if (empty($email)) {
             </select>
         </div>
         <button type="submit" name="submit" class="btn-submit">Adicionar Tarefa</button>
-        <a href="../list_index.php" class="btn-submit btn-list">Lista</a>
-        <a href=" class="logout-btn">Encerrar sessão</a>
+        <a href="../views/view_task_list.php" class="btn-submit btn-list">Lista</a>
+        <a href="../../index.php" class="logout-btn">Encerrar sessão</a>
     </form>
 </div>
 <style>
